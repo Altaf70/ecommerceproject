@@ -1,0 +1,44 @@
+<app-navbar></app-navbar>
+<div class="container-fluid bg-light overflow-auto vh-100">
+    <div class="row vh-100 m-1 justify-content-center align-items-center">
+        <div class="col-md-4 bg-white p-4 rounded-1 shadow">
+            <form [formGroup]="registerForm" (ngSubmit)="registerNow()">
+                <h2 class="text-center">Register Here</h2>
+                <dl>
+                    <dt class="form-label">Full Name</dt>
+                    <dd><input class="form-control" formControlName="user_name" type="text"></dd>
+                    <dd *ngIf="submitted || rFC.user_name.touched && rFC.user_name.invalid" class="text-danger">
+                        <span *ngIf="rFC.user_name.errors?.['required']">Name is required</span>
+                        <span *ngIf="rFC.user_name.errors?.['minlength']">Name min 5 char </span>
+                    </dd>
+                    <dt class="form-label">Mobile</dt>
+                    <dd><input class="form-control" maxlength="10" formControlName="user_mobile" type="text"></dd>
+                    <dd *ngIf="submitted || rFC.user_mobile.touched && rFC.user_mobile.invalid" class="text-danger">
+                        <span *ngIf="rFC.user_mobile.errors?.['required']">Mobile is required</span>
+                        <span *ngIf="rFC.user_mobile.errors?.['minlength']">Mobile min 10 digit</span>                    </dd>
+                    <dt class="form-label">Email</dt>
+                    <dd><input class="form-control" formControlName="user_email" type="email"></dd>
+                    <dd *ngIf="submitted || rFC.user_email.touched && rFC.user_email.invalid" class="text-danger">
+                        <span *ngIf="rFC.user_email.errors?.['required']">Email is required</span>
+                        <span *ngIf="rFC.user_email.errors?.['email']">Email is wrong</span>
+                    </dd>
+                    <dt class="form-label">Password</dt>
+                    <dd><input class="form-control" formControlName="user_password" type="password"></dd>
+                    <dd *ngIf="submitted || rFC.user_password.touched && rFC.user_password.invalid" class="text-danger">
+                        <span *ngIf="rFC.user_password.errors?.['required']">Password is required</span>
+                        <span *ngIf="rFC.user_password.errors?.['minlength']">Password min 5 char</span>
+                    </dd>
+                </dl>
+                <br>
+                <div class="row">
+                    <div class="col-12 d-flex justify-content-between">
+                        <button class="btn btn-success me-4">Register</button>
+                        <button routerLink="/login" class="btn btn-primary ms-4">Login</button>
+                    </div>
+                </div>
+                <br>
+            </form>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,38 @@
+<div class="container-fluid">
+    <div class="row bg-warning p-2 ps-0" >
+        <div class="col-12">
+            <div class="d-flex justify-content-between">
+                <strong><em>AS SHOPE</em></strong>
+                <div class="d-flex justify-content-end">
+                    <div *ngIf="!token">
+                        <button class="btn btn-dark ms-1 me-3" routerLink="/login">Login</button>
+                        <button class="btn btn-dark me-3" routerLink="/register">Register</button>
+                    </div>
+                    <div *ngIf="token" class="hide_print">                        
+                        <button class="btn btn-dark me-2" (click)="logOut()">LogOut</button>
+                        <button routerLink="/profile" class="btn btn-dark me-2">Profile</button>
+                        <button routerLink="/cart" class="btn btn-dark position-relative">
+                            <span class="bi bi-cart"></span>
+                            <span class="badge bg-light position-absolute text-dark rounded-circle">{{cart_length}}</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="navbar navbar-dark bg-dark p-1 navbar-expand-lg position-sticky top-0 fixed-top border-2 border-bottom border-warning hide_print">
+    <h2 class="navbar-brand ms-2">All</h2>
+    <button class="navbar-toggler" data-bs-target="#nb" data-bs-toggle="collapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse" id="nb">
+        <ul class="navbar-nav text-white">
+            <li class="nav-item"><a routerLink="/" class="nav-link">Home</a></li>
+            <li class="nav-item" *ngFor="let item of cat_list" class="nav-item">
+                <a routerLink="/cat_product/{{item.cat_id}}" class="nav-link">{{item.cat_name}}</a>
+            </li>
+            <button *ngIf="token" routerLink="/order_list" class="btn btn-outline-warning btn-sm m-1">My Order</button>
+        </ul>
+    </div>
+</div>

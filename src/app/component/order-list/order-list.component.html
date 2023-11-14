@@ -1,0 +1,33 @@
+<app-navbar></app-navbar>
+<div class="container-fluid overflow-auto vh-100">
+    <div class="row m-3">
+        <div class="col-md-12 d-flex justify-content-center">
+            <h3>My Orders</h3>
+        </div>
+    </div>
+    <hr>
+    <div class="row border border-secondary p-3 m-2" *ngFor="let item of order_list">
+        <div class="col-md-10">
+            <h6>
+                {{item.area}},
+                {{item.city}},
+                {{item.state}},
+                {{item.country}} -
+                {{item.pincode}}
+            </h6>
+            <h6>
+                {{item.entry_date | date}}
+            </h6>
+        </div>
+        <div class="col-md-2">
+            <a routerLink="/order_details/{{item.product_order_id}}">View Order Details</a>
+        </div>
+    </div>
+    <div *ngIf="order_list && !order_list[0]" class="row">
+        <div class="col-md-12 text-center">
+            <br><br><br><br><br><br><br><br><br><br>
+            <h2>No Orders History</h2>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

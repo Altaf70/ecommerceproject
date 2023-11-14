@@ -1,0 +1,18 @@
+<app-navbar></app-navbar>
+<div class="container-fluid">
+    <div class="vh-100 overflow-auto">
+        <div class="d-flex flex-wrap overflow-aut">
+            <div *ngFor="let item of productList" class="card p-2 border-primary m-1" style="width: 270px;">
+                <img routerLink="/product_info/{{item.product_tbl_id}}" style="cursor: pointer;" [src]="item.product_img" height="150px" class="card-img-top" alt="">
+                <div class="card-header" style="height: 123px;">
+                    <p>{{item.product_name}}</p>
+                    <strong>{{item.price | currency: 'INR'}}</strong>
+                </div>
+                <div class="card-body" style="height: 60px;">
+                    Category Page
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

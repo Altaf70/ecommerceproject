@@ -1,0 +1,42 @@
+<app-navbar></app-navbar>
+<div class="container-fluid">
+    <div class="vh-100 overflow-auto">
+        <div *ngIf="c_length>0" class="d-flex flex-wrap overflow-auto">
+            <div *ngFor="let item of cartList" class="card p-2 border-primary m-1" style="width: 140px;">
+                <img [src]="item.product_img" height="80px" class="card-img-top" alt="loading">
+                <div class="card-header" style="height: 145px;">
+                    <p>{{item.product_name}}</p>
+                    <strong>{{item.price | currency: 'INR'}}</strong>
+                </div>
+                <div class="card-body text-center" style="height: 100px;">
+                    <strong>Qty</strong>
+                    <div class="input-group d-flex justify-content-center m-1">
+                        <button class="btn btn-dark" (click)="decQty(item.product_econ_cart_id)">-</button>
+                        <input type="text" disabled [value]="item.qty" class="text-center w-25">
+                        <button class="btn btn-dark" (click)="incQty(item.product_econ_cart_id)">+</button>
+                    </div>
+                </div>
+                <div class="card-footer text-center">
+                    <button class="btn btn-danger" (click)="removeCartQty(item.product_econ_cart_id)">
+                        <span class="bi bi-trash"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="c_length==0" class="text-center position-relative top-50">
+            <h1>Cart Is Empty </h1>
+        </div>
+    </div>
+</div>
+<div *ngIf="c_length > 0" class="text-center bg-light position-sticky bottom-0 fixed-bottom">
+    <hr class="m-0">
+    <strong class="d-inline-block">Total: {{total | currency:'INR'}}</strong>
+    <button routerLink="/order" class="btn btn-warning m-2"><strong>Confirm</strong></button>
+    <button routerLink="/" class="btn btn-danger m-2"><strong>Cancel</strong></button>
+
+</div>
+<div *ngIf="c_length==0" class="text-center bg-light position-sticky bottom-0 fixed-bottom">
+    <hr class="m-0">
+    <button routerLink="/" class="btn btn-warning w-75 m-2 rounded-0"><strong>Back To Home</strong></button>
+</div>
+<app-footer></app-footer>

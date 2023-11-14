@@ -1,0 +1,20 @@
+<app-navbar></app-navbar>
+<div class="container-fluid overflow-auto vh-100">
+    <div class="row mt-5"  *ngIf="product_info">
+        <div class="col-md-6 d-flex justify-content-center">
+            <img [src]="product_info.product_img" width="300px" class="border border-primary" height="300px" alt="">
+        </div>
+        <div class="col-md-6 d-flex justify-content-center">
+            <div>        
+                <h6>{{product_info.product_name}}</h6>
+                <h3>{{product_info.price | currency:'INR'}}</h3>
+                <h5>{{product_info.cat_name}}</h5>
+                <button *ngIf="product_info.cart =='No'" class="btn btn-primary" (click)="addtocart()">Add To Cart</button>
+                <hr>
+                <h5 *ngIf="product_info.cart !='No'" class="m-0">Added In Cart</h5><br>
+                <button routerLink="/" class="btn btn-info">Back To Home</button>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

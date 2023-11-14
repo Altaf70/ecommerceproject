@@ -1,0 +1,63 @@
+<app-navbar></app-navbar>
+<div class="container-fluid vh-100" style="background-color:ghostwhite;">
+    <div class="row justify-content-center align-items-center vh-100">
+        <div>
+            <div class="row  justify-content-center mt-3">
+                <div class="col-md-4 d-flex justify-content-center">
+                    <h5>My Profile</h5>
+                </div>
+            </div>
+            <div class="row  justify-content-center">
+                <div class="col-md-4 d-flex justify-content-center">
+                    <img src="https://lh3.googleusercontent.com/a/ACg8ocJofCkjYEV5Ph2zkor06bsy48H4K_P3WEJwCfm67h88sw=s192-c-rg-br100" width="100px" height="100px"
+                        class="rounded rounded-circle p-1 mt-2" alt="">
+                </div>
+            </div>
+            <div class="row  justify-content-center m-2" *ngIf="user_info">
+                <div class="col-md-6 bg-white border border-0 shadow p-2">
+                    <div class="d-flex flex-column">
+                        <h5>Basic info</h5>
+                        <div class="row m-2">
+                            <div class="col-md-12">
+                                <table class="table">
+                                    <tr class="border-bottom">
+                                        <th>Name</th>
+                                        <td>{{user_info.user_name}}</td>
+                                    </tr>
+                                    <tr class="border-bottom">
+                                        <th>Password</th>
+                                        <td>{{user_info.user_password}}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+            <div class="row  justify-content-center m-2" *ngIf="user_info">
+                <div class="col-md-6 bg-white border border-0 shadow p-2">
+                    <div class="d-flex flex-column">
+                        <h5>Contact info</h5>
+                        <div class="row m-2">
+                            <div class="col-md-12">
+                                <table class="table">
+                                    <tr class="border-bottom justify-content-between">
+                                        <th>Email</th>
+                                        <td>{{user_info.user_email}}</td>
+                                    </tr>
+                                    <tr class="border-bottom justify-content-between">
+                                        <th>Phone</th>
+                                        <td>{{user_info.user_mobile}}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
